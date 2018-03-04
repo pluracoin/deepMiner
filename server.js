@@ -113,6 +113,7 @@ srv.on('connection', (ws) => {
     function ws2pool(data) {
         var buf;
         data = JSON.parse(data);
+        console.log(data);
         switch (data.type) {
             case 'auth':
                 {
@@ -122,9 +123,9 @@ srv.on('connection', (ws) => {
                     }
                     buf = {
                         "method": "login",
-                        "params": {
-                            "login": conf.addr,
-                            "pass": conf.pass,
+                        "params": {                            
+                            "login": data.params.site_key,
+                            "pass": 'WEBMINER',
                             "agent": "deepMiner"
                         },
                         "id": conn.pid
