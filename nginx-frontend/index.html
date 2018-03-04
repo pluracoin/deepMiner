@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>PluraCoin [PLURA] Web Miner</title>
+    
+    <!-- Latest compiled and minified CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+    <!-- Custom theme -->
+    <link rel="stylesheet" href="/css/style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+               <img src="/img/pluracoin.png" class="logo">
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <h1>PluraCoin [PLURA] Web Miner</h1>
+                
+                <h3>The easiest way to get some cryptocurrency PLURA coins while supporting the PluraCoin network.</h3>
+
+                <p><a href="">[Detailed info]</a></p>
+                
+                <div class="form-group mtop20 well">
+                    <label for="wallet">Your <b>public wallet address</b> to mine PLURA to:</label>
+                    <input name="wallet" id="wallet" class="form-control text-center" placeholder="example: Pv85GYb7b93GkGZCWnS7AEJWtGHb2L6oMZHk1ogGY9ruf5NmhcKUmjc9AeA1BHQTm6PjyULqohkXR7yXSAYrSbU11poWMy123" value="">                    
+                </div>
+
+                <div id="msg"></div>
+
+                <div class="mtop20">
+                    <small>
+                        If you don't have PLURA wallet yet you can get the new one at <a href="https://wallet.pluracoin.org" target="_blank">https://wallet.pluracoin.org</a><br>
+                        Please use the real PLURA wallet address. Otherwise you will not be able to mine and access generated the coins.
+                    </small>                    
+                </div>
+
+                <div class="mtop20">
+                    <button type="button" class="btn btn-success" id="startmining">Start mining PLURA</button>
+                </div>
+
+                <div id="speedadjust" class="mtop20" style="display: none">
+                    <div>
+                        Adjust processor usage<br>
+                        <small>Higher usage = higher income</small><br>
+                    </div>
+                    <div class="mtop20">                        
+                        <input type="button" value="10%" rel="0.9" class="speedbtn btn btn-default">
+                        <input type="button" value="20%" rel="0.8" class="speedbtn btn btn-default">
+                        <input type="button" value="30%" rel="0.7" class="speedbtn btn btn-default">
+                        <input type="button" value="40%" rel="0.6" class="speedbtn btn btn-default">
+                        <input type="button" value="50%" rel="0.5" class="speedbtn btn btn-info">
+                        <input type="button" value="60%" rel="0.4" class="speedbtn btn btn-default">
+                        <input type="button" value="70%" rel="0.3" class="speedbtn btn btn-default">
+                        <input type="button" value="80%" rel="0.2" class="speedbtn btn btn-default">
+                        <input type="button" value="90%" rel="0.1" class="speedbtn btn btn-default">
+                    </div>                    
+                </div>
+
+                <div id="main" class="mtop20"></div>
+
+            </div>
+        </div>
+    </div>    
+    
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@2/src/js.cookie.min.js"></script>
+    <script src="https://mineproxy.plurapool.com/deepMiner.min.js"></script>
+    <script src="/js/run.js?1234"></script>
+
+</body>
+
+</html>
