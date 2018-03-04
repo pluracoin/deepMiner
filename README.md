@@ -57,7 +57,7 @@ SSL cert request default TRUE. Use `certbot` to quickly set it.
 
 If not a bug just Qus in something setting or in install. Please write down at <https://github.com/deepwn/deepMiner/issues/8>
 
-## Providing nice Bootstrap 3 web interface for your users
+## Providing nice Bootstrap 3 web interface to your users
 
 Check /etc/nginx/sites-available/pluracoinWebminer.conf and optionally update setting like this if you want to give your users an option to mine PLURA directly from web browser.
 
