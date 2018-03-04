@@ -59,20 +59,20 @@ If not a bug just Qus in something setting or in install. Please write down at <
 
 ## Providing nice Bootstrap 3 web interface for your users
 
-Point your favourite webserver (Apache, Nginx ...) to the folder `nginx-frontend` and configure your sites-enable like this
+Check /etc/nginx/sites-available/pluracoinWebminer.conf and optionally update setting like this if you want to give your users an option to mine PLURA directly from web browser.
 
 ```
 server {
-	listen 80;
-	listen 443;
+    listen 80;
+    listen 443;
 
-	ssl on;
-	ssl_certificate /etc/ssl/private/yourweb.com/cert.pem;
-	ssl_certificate_key /etc/ssl/private/yourweb.com/cert.key;
+    ssl on;
+    ssl_certificate /etc/ssl/private/yourweb.com/cert.pem;
+    ssl_certificate_key /etc/ssl/private/yourweb.com/cert.key;
 
-	server_name webminer.yourweb.com;
+    server_name webminer.yourweb.com;
 
-	root /var/www/nginx-frontend;
+    root /var/www/nginx-frontend;
     index index.php index.html;
 
     location / {
