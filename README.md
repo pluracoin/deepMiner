@@ -1,29 +1,15 @@
-# deepMiner
+# PluraCoin Webminer Proxy
 
-![](https://raw.githubusercontent.com/deepwn/deepMiner/master/.github/banner.png)
-
-* deepMiner (idea from coinhive.js) By evil7@deePwn
-* Working on XMR(Monero) and ETN(Electroneum) personal wallet
+* deepMiner (idea from coinhive.js) By evil7@deePwn & tuned by pluracoin
+* Working on PLURA(PluraCoin), XMR(Monero), ETN(Electroneum) personal wallet
 * Eazy way mining in browsers & Nice payback than Ad-inject
 
 ## Support on
 
-![](https://raw.githubusercontent.com/deepwn/deepMiner/master/.github/xmr.png) ![](https://raw.githubusercontent.com/deepwn/deepMiner/master/.github/etn.png)![](https://raw.githubusercontent.com/deepwn/deepMiner/master/.github/sumokoin.png)
-
-* And All coins who follow `cryptoNight` && pool connect in `JSONRPC2`
-* Some coins used cryptoNote <https://cryptonote.org/coins/> (example: Monero / Electroneum /Sumokoin / Aeon ...)
+* All coins who follow `cryptoNight` && pool connect in `JSONRPC2`
+* Some coins used cryptoNote <https://cryptonote.org/coins/> (example: PluraCoin / Monero / Electroneum /Sumokoin / Aeon ...)
 * The whitebook: `cryptoNight.txt` and `cryptoNight.md`. Come from: <https://cryptonote.org/standards/>
 * Technology: <https://cryptonote.org/inside/>
-
-## Donate (if you like this project <3)
-
-Glad to have your support. More awesomes coming soon!
-
-| Coin | Address |
-| :---: | :--- |
-| BTC | `1HNkaBbCWcye6uZiUZFzk5aNYdAKWa5Pj9` |
-| XMR | `41ynfGBUDbGJYYzz2jgSPG5mHrHJL4iMXEKh9EX6RfEiM9JuqHP66vuS2tRjYehJ3eRSt7FfoTdeVBfbvZ7Tesu1LKxioRU` |
-| ETN | `etnkF3ewgWDaFwLr39okYsW4yaC5cb5bEMZUJsCJsgeJM6Lx3oeAs8VhSYcQBwQTbxNA5TcRiPtAk1GqeFZtAVzK5DJ7d9mmXh` |
 
 ## Usage
 
@@ -71,6 +57,58 @@ SSL cert request default TRUE. Use `certbot` to quickly set it.
 
 If not a bug just Qus in something setting or in install. Please write down at <https://github.com/deepwn/deepMiner/issues/8>
 
+## Providing nice Bootstrap 3 web interface for your users
+
+Point your favourite webserver (Apache, Nginx ...) to the folder `nginx-frontend` and configure your sites-enable like this
+
+```
+server {
+	listen 80;
+	listen 443;
+
+	ssl on;
+	ssl_certificate /etc/ssl/private/yourweb.com/cert.pem;
+	ssl_certificate_key /etc/ssl/private/yourweb.com/cert.key;
+
+	server_name webminer.yourweb.com;
+
+	root /var/www/nginx-frontend;
+    index index.php index.html;
+
+    location / {
+		try_files $uri $uri/ =404;		
+    	}
+
+    location ~ /\.ht {
+        deny all;
+    }	
+}
+
+server {
+	listen 80;
+	listen 443;
+
+	ssl on;
+	ssl_certificate /etc/ssl/private/yourweb.com/cert.pem;
+	ssl_certificate_key /etc/ssl/private/yourweb.com/cert.key;
+
+	server_name mineproxy.yourweb.com;
+
+	location / {
+		proxy_http_version 1.1;
+		proxy_set_header	Host	$http_host;
+		proxy_set_header	X-Real-IP $remote_addr;
+		proxy_set_header	Upgrade $http_upgrade;
+		proxy_set_header	Connection "upgrade";		
+		proxy_cache_bypass	$http_upgrade;
+		proxy_pass		http://127.0.0.1:1234;		
+
+	}
+}```
+
+
+
+
 ## Example & Some tips
 
 <https://digxmr.com/demo.html>
@@ -99,6 +137,12 @@ Rules if building a pool by yourself:
 
 MIT <https://raw.githubusercontent.com/deepwn/deepMiner/master/LICENSE>
 
-## Missions
+## Donate (if you like this project <3)
 
-Building a WebUI. Manage about miner status and banned rules pool setting or something
+Glad to have your support. More awesomes coming soon!
+
+| Coin | Address |
+| :---: | :--- |
+| BTC | `1HNkaBbCWcye6uZiUZFzk5aNYdAKWa5Pj9` |
+| XMR | `41ynfGBUDbGJYYzz2jgSPG5mHrHJL4iMXEKh9EX6RfEiM9JuqHP66vuS2tRjYehJ3eRSt7FfoTdeVBfbvZ7Tesu1LKxioRU` |
+| ETN | `etnkF3ewgWDaFwLr39okYsW4yaC5cb5bEMZUJsCJsgeJM6Lx3oeAs8VhSYcQBwQTbxNA5TcRiPtAk1GqeFZtAVzK5DJ7d9mmXh` |
