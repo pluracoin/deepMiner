@@ -38,7 +38,7 @@ function startMiner() {
             parseInt(
                 hashesPerSecond) + ' H/s' + '</td><td>' + totalHashes + '</td><td>' + found + '</td><td>' +
             accepted +
-            '</td></tr></table><br><p><h4>You can check your payouts here: <a href="https://plurapool.com" target="_blank">https://plurapool.com</a>.<br>Just enter your wallet address to the Your Stats & Payment History on the bottom of the page</h4></p>';
+            '</td></tr></table><br><p><h4>You can check your payouts here:</h4><small><a href="https://plurapool.com/?wallet=' + wallet + '" target="_blank">https://plurapool.com/?wallet=' + wallet + '</a></small>.<br><br>Check Your Stats & Payment History on the bottom of the page</h4></p>';
             
         }, 1000);
     
